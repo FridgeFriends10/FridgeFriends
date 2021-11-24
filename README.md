@@ -1,5 +1,7 @@
 # FridgeFriends
 Mobile software to organize and optimize the use of the food you have in your fridge 
+In order for the program to work you will need to import the files attatched to your source code editor (PyCharm, VisualStudioCode, etc)
+These files are "ingredients.txt" and "recipes.txt"
 
 WHAT THE PROJECT DOES?
 
