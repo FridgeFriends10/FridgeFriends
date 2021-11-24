@@ -1,6 +1,7 @@
 from heapq_max import *
 from dateutil.relativedelta import relativedelta
 import datetime
+import webbrowser
 
 r = open("recipes.txt")
 i = open("ingredients.txt")
@@ -75,10 +76,17 @@ def dishes(recipes_ingredients1, food_in_fridge):
         print("\n", chosenRecipe[1], recipes_ingredients1[chosenRecipe[1]])
         chosenRecipe = heappop_max(values_heap)
         print("\n", chosenRecipe[1], recipes_ingredients1[chosenRecipe[1]])
-        answer = input("\nWould you like to see more recipes? (press <enter> to see more recipes): ")
+        answer = input("\nWould you like to see more recipes? (press <enter> to see more recipes) or watch how to do the recipe on YT (press w): ")
         if answer == "":
             continue
+        if answer == "w":
+            video = input("What is the name of the receipe you chose?:")
+            c = "https://www.youtube.com/results?search_query="
+            webbrowser.open(c + video, new=0)
+            print("\nThank you for using Fridge Friends")
+            break
         else:
+            print("\nThank you for using Fridge Friends")
             break
 
 
