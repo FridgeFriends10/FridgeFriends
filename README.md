@@ -12,13 +12,13 @@ These files are **"ingredients.txt" and "recipes.txt"**
 **Usage**
 Once the application has been entered, the app will guide the user through anything they wish to do with no need to run seperate sections of the code every time the user wants to do a new action. The process the platform will go through is the following:
 
-∙ The application will ask the user wether you want to register or login to the app
+- The application will ask the user wether you want to register or login to the app
 
-∙ Once they have entered the platform through resgistering in or logging in, they will have the following options:
+- Once they have entered the platform through resgistering in or logging in, they will have the following options:
 
-  - To to look for a recipe 
-  - Search for nutritional facts of a dish
-  - Cook something with the ingredients you have
+  ∙To to look for a recipe 
+  ∙Search for nutritional facts of a dish
+  ∙Cook something with the ingredients you have
 
 **Looking for a recipe**
 
