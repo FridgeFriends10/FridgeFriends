@@ -16,11 +16,11 @@ Once the application has been entered, the app will guide the user through anyth
 
 - Once they have entered the platform through resgistering in or logging in, they will have the following options:
 
-  ∙To to look for a recipe 
+  ∙ To to look for a recipe 
   
-  ∙Search for nutritional facts of a dish
+  ∙ Search for nutritional facts of a dish
   
-  ∙Cook something with the ingredients you have
+  ∙ Cook something with the ingredients you have
 
 **Looking for a recipe**
 
