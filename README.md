@@ -23,17 +23,17 @@ Once the application has been entered, the app will guide the user through anyth
   
     ∙ Cook something with the ingredients you have
 
-~**Looking for a recipe**~
+_**Looking for a recipe**_
 
 - The user gets a list of all the recipes available in FridgeFriends.
 
 
-~**Searching for nutritional facts of a dish**~
+_**Searching for nutritional facts of a dish**_
 
 - The program asks the user to introduce the dish of which the nutritional info is required.
 - Once the suer chooses, the app redirects you to a safe web link that provides you with all the information needed.
 
-~**Cooking something with the ingredients you have**~
+_**Cooking something with the ingredients you have**_
 
 - The program asks the user to introduce as many ingredients as he wishes separated by commas.
 - Once it receives the list of ingredients, the app will provide you with a list of 3 recipes (with the option to extend it as much as you want). The recipes are filtered by matches with your input of ingredients, i.e first the one with more coincidences, etc...
