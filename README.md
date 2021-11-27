@@ -1,15 +1,15 @@
 # FridgeFriends
-**Description**
+**DESCRIPTION**
 
 This program is a mobile application to organize and optimize the use of the food you have in your fridge. It consists of a cooking application available in app stores that includes different recipes and allows the users to introduce new products/ ingredients bought with their expiration date, creating a link between the days until expiration and each product added to keep a record of all the ingredients that you have. Furthermore, the application would have a varied bank of recipes, from which depending on the convenience, product availability and expiration date the algorithm would output the recipes for the user to have an idea of what to cook.
 
-**Installation and Libraries**
+**INSTALLATION AND LIBRARIES**
 
 In order for the program to work you must have the python programming language installed. Any version between Python 3.6 and 3.8.
 You will need to **import the files attatched** to your source code editor (PyCharm, VisualStudioCode, etc)
 These files are **"ingredients.txt" and "recipes.txt"**
 
-**Usage**
+**USAGE**
 
 Once the application has been entered, the app will guide the user through anything they wish to do with no need to run seperate sections of the code every time the user wants to do a new action. The process the platform will go through is the following:
 
@@ -40,7 +40,7 @@ _**Cooking something with the ingredients you have**_
 - After, you can choose wether to watch how a recipe is ellaborated, the program will direct you to a youtube video to see the tutorial.
 - Or, if for any recipe you are lacking any product, the app provides you with a direct link to a supermarket online web, that allows you to buy watherver you need. 
 
-**Why the app is useful?**
+**WHY THE APP IS USEFUL?**
 
 The project is useful for students and young people that may not have much experience in cooking when studying and living outside their houses, to be able to know exactly what to eat, how to prepare it, what to buy, the times required so that you can organise your rest of the day, not waste awful amounts of time in the kitchen and avoid all types of food waste. With our app we aim to deliver to customers commodity and a healthy lifestyle while maintaining within their budget. 
 
