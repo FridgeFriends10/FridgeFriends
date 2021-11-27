@@ -10,6 +10,7 @@ You will need to **import the files attatched** to your source code editor (PyCh
 These files are **"ingredients.txt" and "recipes.txt"**
 
 **Usage**
+
 Once the application has been entered, the app will guide the user through anything they wish to do with no need to run seperate sections of the code every time the user wants to do a new action. The process the platform will go through is the following:
 
 - The application will ask the user wether you want to register or login to the app
@@ -24,13 +25,20 @@ Once the application has been entered, the app will guide the user through anyth
 
 **Looking for a recipe**
 
+- The user gets a list of all the recipes available in FridgeFriends.
+
 
 **Searching for nutritional facts of a dish**
 
+- The program asks the user to introduce the dish of which the nutritional info is required.
+- Once the suer chooses, the app redirects you to a safe web link that provides you with all the information needed.
 
 **Cooking something with the ingredients you have**
 
-
+- The program asks the user to introduce as many ingredients as he wishes separated by commas.
+- Once it receives the list of ingredients, the app will provide you with a list of 3 recipes (with the option to extend it as much as you want). The recipes are filtered by matches with your input of ingredients, i.e first the one with more coincidences, etc...
+- After, you can choose wether to watch how a recipe is ellaborated, the program will direct you to a youtube video to see the tutorial.
+- Or, if for any recipe you are lacking any product, the app provides you with a direct link to a supermarket online web, that allows you to buy watherver you need. 
 
 **Why the app is useful?**
 
