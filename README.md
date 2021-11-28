@@ -8,6 +8,7 @@ This program is a mobile application to organize and optimize the use of the foo
 In order for the program to work you must have the python programming language installed. Any version between Python 3.6 and 3.8.
 You will need to **import the files attatched** to your source code editor (PyCharm, VisualStudioCode, etc)
 These files are **"ingredients.txt" and "recipes.txt"**
+Also, you need to install the libraries **"python-dateutil"**, **"heapq-max"** and **"pywebio"**
 
 **USAGE**
 
