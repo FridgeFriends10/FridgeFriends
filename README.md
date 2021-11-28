@@ -6,17 +6,36 @@ This program is a mobile application to organize and optimize the use of the foo
 **INSTALLATION AND LIBRARIES**
 
 In order for the program to work you must have the python programming language installed. Any version between Python 3.6 and 3.8.
-You will need to **import the files attatched** to your source code editor (PyCharm, VisualStudioCode, etc)
+You will need to **download the files attatched** to your computer
 These files are **"ingredients.txt" and "recipes.txt"**
 Also, you need to install the libraries **"python-dateutil"**, **"heapq-max"** and **"pywebio"**
 
 **USAGE**
 
-Once the application has been entered, the app will guide the user through anything they wish to do with no need to run seperate sections of the code every time the user wants to do a new action. The process the platform will go through is the following:
+Once the application has been entered, a website will be opened. Then, the app will guide the user through anything they wish to do with no need to run seperate sections of the code every time the user wants to do a new action. The process the platform will go through is the following:
+
+- The program will ask to upload the two files previously downloaded
+
+
+
+
+https://user-images.githubusercontent.com/94390619/143786197-4c508b54-25c4-4b26-8394-d2ec1e3a3b11.mp4
+
+
+
+
+
 
 - The application will ask the user wether you want to register or login to the app
 
-- Once they have entered the platform through resgistering in or logging in, they will have the following options:
+<img width="922" alt="Screen Shot 2021-11-28 at 21 07 47" src="https://user-images.githubusercontent.com/94390619/143784134-a99b1a81-4144-444b-903d-ccccc9cb8c5c.png">
+
+
+- Once they have entered the platform through resgistering or logging in, they will have the following options:
+
+
+<img width="1014" alt="Screen Shot 2021-11-28 at 22 16 18" src="https://user-images.githubusercontent.com/94390619/143786258-a370ef69-7123-414a-9b48-7a9b6b658d68.png">
+
 
     ∙ To to look for a recipe 
   
@@ -27,19 +46,21 @@ Once the application has been entered, the app will guide the user through anyth
 _**Looking for a recipe**_
 
 - The user gets a list of all the recipes available in FridgeFriends.
+- The program will output the ingredients necessary for the chosen recipe
+
 
 
 _**Searching for nutritional facts of a dish**_
 
 - The program asks the user to introduce the dish of which the nutritional info is required.
-- Once the suer chooses, the app redirects you to a safe web link that provides you with all the information needed.
+- Once the user chooses, the app redirects you to a safe web link that provides you with all the information needed.
 
 _**Cooking something with the ingredients you have**_
 
 - The program asks the user to introduce as many ingredients as he wishes separated by commas.
 - Once it receives the list of ingredients, the app will provide you with a list of 3 recipes (with the option to extend it as much as you want). The recipes are filtered by matches with your input of ingredients, i.e first the one with more coincidences, etc...
 - After, you can choose wether to watch how a recipe is ellaborated, the program will direct you to a youtube video to see the tutorial.
-- Or, if for any recipe you are lacking any product, the app provides you with a direct link to a supermarket online web, that allows you to buy watherver you need. 
+- Or, if for any recipe you are lacking any product, the app provides you with a direct link to a supermarket online web, that allows you to buy whatever you need. 
 
 **WHY THE APP IS USEFUL?**
 
