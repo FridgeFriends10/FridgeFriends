@@ -7,6 +7,7 @@ from pywebio.input import *
 from pywebio.output import *
 
 put_markdown("WELCOME TO FRIDGE FRIENDS®", scope="ROOT")
+put_button("Home",onclick=lambda: main(),color="success")
 with put_loading():
 
     put_text("Please make sure you don't have already uploaded the files, if you have please delete them from your code editor but not from your computer")
@@ -63,6 +64,8 @@ recipes_ingredients = dict(zip(recipes1, ingredients))
 
 
 def register():
+    global userName
+    global passWord
     userName = input(placeholder="Username")
     passWord = input(placeholder="Password", type=PASSWORD)
     with open("accounts.txt", "a") as f:
@@ -95,7 +98,7 @@ def login():
     if passWord == x:
         put_text("Welcome back,", userName)
     else:
-        toast("Username and Password or not correct")
+        toast("Username or Password are not correct")
         put_text("The username or password is incorrect, please try again")
         login()
 
@@ -240,3 +243,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
