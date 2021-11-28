@@ -2,53 +2,69 @@ from heapq_max import *
 from dateutil.relativedelta import relativedelta
 import datetime
 import webbrowser
-from tkinter.filedialog import askopenfile
 import time
+from pywebio.input import *
+from pywebio.output import *
 
+put_markdown("WELCOME TO FRIDGE FRIENDS®", scope="ROOT")
+with put_loading():
 
-print("The program will ask for a file to import, please choose recipes.txt")
-time.sleep(5)
-print("In 3 seconds")
-time.sleep(1)
-print("In 2 seconds")
-time.sleep(1)
-print("In 1 second")
-time.sleep(1)
-recipes_file = askopenfile(mode='r')
+    put_text("Please make sure you don't have already uploaded the files, if you have please delete them from your code editor but not from your computer")
+    put_text("Now the program will ask for a file to import, please choose recipes.txt")
+    time.sleep(3)
+    put_text("In 3 seconds")
+    time.sleep(1)
+    put_text("In 2 seconds")
+    time.sleep(1)
+    put_text("In 1 second")
+    time.sleep(1)
+recipes_file = file_upload("Select recipes.txt")
 
-print("The program will ask for another file to import, please choose ingredients.txt")
-time.sleep(5)
-print("In 3 seconds")
-time.sleep(1)
-print("In 2 seconds")
-time.sleep(1)
-print("In 1 second")
-time.sleep(1)
-ingredients_file = askopenfile(mode='r')
+with put_loading():
+
+    put_text("Now the program will ask for another file to import, please choose ingredients.txt")
+    time.sleep(3)
+    put_text("In 3 seconds")
+    time.sleep(1)
+    put_text("In 2 seconds")
+    time.sleep(1)
+    put_text("In 1 second")
+    time.sleep(1)
+ingredients_file = file_upload("Select ingredients.txt")
+
+recipes_file = recipes_file["content"]
+recipes_file = recipes_file.decode("utf-8")
+with open("recipes.txt", "a") as recipes_file1:
+    recipes_file1.write(recipes_file)
+
+ingredients_file = ingredients_file["content"]
+ingredients_file = ingredients_file.decode("utf-8")
+with open("ingredients.txt", "a") as ingredients_file1:
+    ingredients_file1.write(ingredients_file)
 
 
 recipes1 = []
 ingredients = []
-
-for line in recipes_file:
+r = open("recipes.txt")
+i = open("ingredients.txt")
+for line in r:
     key = line[:-1]
     key = key.lower()
     recipes1.append(key)
 
-for line1 in ingredients_file:
+for line1 in i:
     line1 = line1[:-1]
     val = list(line1.split(","))
     ingredients.append(val)
 
+
 recipes_ingredients = dict(zip(recipes1, ingredients))
 
 
-def register():
-    global userName
-    global passWord
-    userName = input("\nUser Name: ")
-    passWord = input("\nPassword: ")
 
+def register():
+    userName = input(placeholder="Username")
+    passWord = input(placeholder="Password", type=PASSWORD)
     with open("accounts.txt", "a") as f:
         f.write(userName + "|" + passWord + "|")
 
@@ -56,8 +72,7 @@ def register():
 def login():
     global userName
     global passWord
-    userName = input("\nUser Name: ")
-    passWord = input("\nPassword: ")
+
     list = []
     infile = open("accounts.txt", "r")
     line = infile.readline()
@@ -73,26 +88,29 @@ def login():
     for i in range(len(list) - y):
         dictionary[list[i]] = list[i + 1]
         list.pop(0)
-
+    userName = input(placeholder="Username")
+    passWord = input(placeholder="Password", type=PASSWORD)
     x = dictionary.get(userName)
+
     if passWord == x:
-        print("\nWelcome back,", userName)
+        put_text("Welcome back,", userName)
     else:
-        print("\nThe username or password is incorrect, please try again")
-        quit()
+        toast("Username and Password or not correct")
+        put_text("The username or password is incorrect, please try again")
+        login()
 
 
 def addProduct():
     products = input('Enter elements of a list separated by a comma ').lower()
     user_list = products.split(",")
-    print('list: ', user_list)
+    put_text('list: ', user_list)
     return products
 
 
 def addDate(products):
     ingredients_exp = {}
     today = datetime.date.today()
-    print("Today's date:", today)
+    put_text("Today's date:", today)
     for x in range(len(products)):
         date_entry = input('What is the expiration date? (Enter a date in YYYY-MM-DD format): ')
         year, month, day = map(int, date_entry.split('-'))
@@ -104,8 +122,8 @@ def addDate(products):
         difference_months = time_difference.months
         difference_days = time_difference.days
 
-        print("Your product will expire in:", difference_years, "years,", difference_months, "months and",
-              difference_days, "days.")
+        put_text("Your product will expire in:", difference_years, "years,", difference_months, "months and",
+                 difference_days, "days.")
 
         years_to_days = difference_years * 365
         months_to_days = difference_months * 30
@@ -130,62 +148,54 @@ def dishes(recipes_ingredients1, food_in_fridge):
         x = len(food_in_fridge & items)
         heapq_max.heappush_max(values_heap, (x, recipe))
     while True:
-        print("\nYou can cook these three meals: ")
+        put_text("\nYou can cook these three meals: ")
         chosenRecipe = heappop_max(values_heap)
-        print("\n", chosenRecipe[1], recipes_ingredients1[chosenRecipe[1]])
+        put_text("\n", chosenRecipe[1], recipes_ingredients1[chosenRecipe[1]])
         chosenRecipe = heappop_max(values_heap)
-        print("\n", chosenRecipe[1], recipes_ingredients1[chosenRecipe[1]])
+        put_text("\n", chosenRecipe[1], recipes_ingredients1[chosenRecipe[1]])
         chosenRecipe = heappop_max(values_heap)
-        print("\n", chosenRecipe[1], recipes_ingredients1[chosenRecipe[1]])
-        print("\nWould you like to see more recipes? (press <enter> to see more recipes),")
-        answer = input("watch how to do the recipe on YT (press w), buy the missing products (b) or quit(q): ")
-        if answer == "":
+        put_text("\n", chosenRecipe[1], recipes_ingredients1[chosenRecipe[1]])
+        answer = select("WHat would you like to do?", ["See more recipes", "Buy the missing products", "Watch how to cook the dish on YouTube"])
+        if answer == "See more recipes":
             continue
-        if answer == "w":
+        if answer == "Watch how to cook the dish on YouTube":
             video = input("What is the name of the receipe you chose?:")
             c = "https://www.youtube.com/results?search_query="
             webbrowser.open(c + video, new=0)
-            print("\nThank you for using Fridge Friends®")
-            print("\nIf you liked the program please share it in your social media: https://github.com/FridgeFriends10/FridgeFriends")
-            print("\nAny problem or recommendation to improve the program please contact.")
-            print("\nEmail: FridgeFriends10@gmail.com")
-            print("\nProject created and developed by: \nLucia Gil \nVirginia Levi \nAlba San Cristóbal \nMartin Mir \nJaime Echevarría \nJuan Peláez ")
-            break
-        if answer == "b":
-            ingredients_missing(products)
-            answer2 = input("Would you like to use FridgeFriends again? (yes or no): ").lower()
-            if answer2 == "yes":
-                main()
-            else:
-                print("\nThank you for using Fridge Friends®")
-                print(
-                    "\nIf you liked the program please share it in your social media: https://github.com/FridgeFriends10/FridgeFriends")
-                print("\nAny problem or recommendation to improve the program please contact.")
-                print("\nEmail: FridgeFriends10@gmail.com")
-                print(
-                    "\nProject created and developed by: \nLucia Gil \nVirginia Levi \nAlba San Cristóbal \nMartin Mir \nJaime Echevarría \nJuan Peláez ")
-                quit()
-        else:
-            print("\nThank you for using Fridge Friends®")
-            print(
+            put_text("\nThank you for using Fridge Friends®")
+            put_text(
                 "\nIf you liked the program please share it in your social media: https://github.com/FridgeFriends10/FridgeFriends")
-            print("\nAny problem or recommendation to improve the program please contact the team.")
-            print("\nEmail: FridgeFriends10@gmail.com")
-            print(
+            put_text("\nAny problem or recommendation to improve the program please contact.")
+            put_text("\nEmail: FridgeFriends10@gmail.com")
+            put_text(
                 "\nProject created and developed by: \nLucia Gil \nVirginia Levi \nAlba San Cristóbal \nMartin Mir \nJaime Echevarría \nJuan Peláez ")
             break
+        if answer == "Buy the missing products":
+            ingredients_missing(products)
+            answer2 = select("Would you like to use FridgeFriends again?", ["Yes", "No"])
+            if answer2 == "Yes":
+                main()
+            if answer2 == "No":
+                put_text("\nThank you for using Fridge Friends®")
+                put_text(
+                    "\nIf you liked the program please share it in your social media: https://github.com/FridgeFriends10/FridgeFriends")
+                put_text("\nAny problem or recommendation to improve the program please contact.")
+                put_text("\nEmail: FridgeFriends10@gmail.com")
+                put_text(
+                    "\nProject created and developed by: \nLucia Gil \nVirginia Levi \nAlba San Cristóbal \nMartin Mir \nJaime Echevarría \nJuan Peláez ")
+                quit()
 
 
 def nutrition():
     answer = input("\nWhat dish would you like to know the nutritious information about?: ")
     v = "https://www.nutritionvalue.org/search.php?food_query="
     webbrowser.open(v + answer, new=0)
-    print("\nThank you for using Fridge Friends®")
-    print(
+    put_text("\nThank you for using Fridge Friends®")
+    put_text(
         "\nIf you liked the program please share it in your social media: https://github.com/FridgeFriends10/FridgeFriends")
-    print("\nAny problem or recommendation to improve the program please contact the team.")
-    print("\nEmail: FridgeFriends10@gmail.com")
-    print(
+    put_text("\nAny problem or recommendation to improve the program please contact the team.")
+    put_text("\nEmail: FridgeFriends10@gmail.com")
+    put_text(
         "\nProject created and developed by: \nLucia Gil \nVirginia Levi \nAlba San Cristóbal \nMartin Mir \n Jaime Echevarría \n Juan Peláez ")
     quit()
 
@@ -194,61 +204,38 @@ def ingredients_missing(products):
     user_recipe1 = input("What dish recipe have you chosen?: ")
     ingredients2 = recipes_list(recipes1, user_recipe1)
     products = products.split(",")
-    a = list(set(ingredients2)-set(products))
+    a = list(set(ingredients2) - set(products))
     for x in a:
-        print("You are missing this ingredient:", x)
-        x = x.replace(" ","")
-        m = "https://www.walmart.com/search?q="
-        print(m+x)
+        put_text("You are missing this ingredient:", x)
+        x = x.replace(" ", "")
+        m = "https://www.walmart.com/search?q="+x
+        put_link("Click here for:"+x, url=m)
 
 
 def main():
-    answer0 = input("\nHi there!, would you like to register or login to an existing account?: ").lower()
-
-    if answer0 == "register":
+    put_markdown("WELCOME TO FRIDGE FRIENDS")
+    option1 = select("Are you new? Or do you have an existing account?", ["Register", "Login"])
+    if option1 == "Register":
         register()
-
-    elif answer0 == "login":
+    if option1 == "Login":
         login()
+    toast("Login Successful")
+    put_text("\nWelcome to Fridge Friends", userName)
+    options2 = select("What would you like to do?",["Look for a recipe", "Search for nutritional fact", "Cook a dish with ingredients you have"])
 
-    elif answer0 == "":
-        quit()
-
-    else:
-        print("Please choose to register or to login (register, login).")
-        main()
-
-    print("\nWelcome to Fridge Friends", userName)
-    print("\nWould you like to look for a recipe (r), search for nutritional facts of a dish (n)")
-    answer = input("cook something with the ingredients you have (c) or press (q) to quit: ")
-
-    if answer == "r":
-        print("Here is a list of all possible meals:")
-        print([*recipes_ingredients])
+    if options2 == "Look for a recipe":
+        put_text("Here is a list of all possible meals:")
+        put_scrollable([*recipes_ingredients])
         user_recipe = input("\nWhat meal would you like to know more about?: ")
         ingredients1 = recipes_list(recipes1, user_recipe)
-        print("\nThese are the ingredients you need for that dish:", ingredients1)
+        put_text("\nThese are the ingredients you need for that dish:", ingredients1)
 
-    elif answer == "n":
+    elif options2 == "Search for nutritional fact":
         nutrition()
 
-    elif answer == "c":
+    elif options2 == "Cook a dish with ingredients you have":
         food_in_fridge = addProduct()
         dishes(recipes_ingredients, food_in_fridge)
-
-    elif answer == "q":
-        print("\nThank you for using Fridge Friends®")
-        print(
-            "\nIf you liked the program please share it in your social media: https://github.com/FridgeFriends10/FridgeFriends")
-        print("\nAny problem or recommendation to improve the program please contact the team.")
-        print("\nEmail: FridgeFriends10@gmail.com")
-        print(
-            "\nProject created and developed by: \nLucia Gil \nVirginia Levi \nAlba San Cristóbal \nMartin Mir \nJaime Echevarría \nJuan Peláez ")
-        quit()
-
-    else:
-        print("Please type a valid response:")
-        main()
 
 
 if __name__ == "__main__":
