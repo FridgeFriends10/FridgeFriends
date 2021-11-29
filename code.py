@@ -1,3 +1,6 @@
+import pip
+pip.main(['install', 'pywebio'])
+pip.main(['install', 'heapq_max'])
 from heapq_max import *
 from dateutil.relativedelta import relativedelta
 import datetime
