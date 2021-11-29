@@ -1,16 +1,20 @@
 # FridgeFriends
-**DESCRIPTION**
+**-DESCRIPTION**
 
 This program is a mobile application to organize and optimize the use of the food you have in your fridge. It consists of a cooking application available in app stores that includes different recipes and allows the users to introduce new products/ ingredients bought with their expiration date, creating a link between the days until expiration and each product added to keep a record of all the ingredients that you have. Furthermore, the application would have a varied bank of recipes, from which depending on the convenience, product availability and expiration date the algorithm would output the recipes for the user to have an idea of what to cook.
 
-**INSTALLATION AND LIBRARIES**
+**-MODULES AND LIBRARIES**
 
 In order for the program to work you must have the python programming language installed. Any version between Python 3.6 and 3.8.
 You will need to **download the files attatched** to your computer
 These files are **"ingredients.txt" and "recipes.txt"**
-Also, you need to install the libraries **"python-dateutil"**, **"heapq-max"** and **"pywebio"**
 
-**USAGE**
+<h3> As commented on the code.py file, you will need to have installed the following modules **"python-dateutil"**, **"heapq_max"** and **"pywebio"** </h3>
+
+
+
+
+**-USAGE**
 
 Once the application has been entered, a website will be opened. Then, the app will guide the user through anything they wish to do with no need to run seperate sections of the code every time the user wants to do a new action. The process the platform will go through is the following:
 
