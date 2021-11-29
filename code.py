@@ -162,7 +162,7 @@ def dishes(recipes_ingredients1, food_in_fridge):
         put_text("\n", chosenRecipe[1], recipes_ingredients1[chosenRecipe[1]])
         chosenRecipe = heappop_max(values_heap)
         put_text("\n", chosenRecipe[1], recipes_ingredients1[chosenRecipe[1]])
-        answer = select("WHat would you like to do?", ["See more recipes", "Buy the missing products", "Watch how to cook the dish on YouTube"])
+        answer = select("What would you like to do?", ["See more recipes", "Buy the missing products", "Watch how to cook the dish on YouTube"])
         if answer == "See more recipes":
             continue
         if answer == "Watch how to cook the dish on YouTube":
