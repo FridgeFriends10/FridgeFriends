@@ -69,3 +69,7 @@ The project is useful for students and young people that may not have much exper
 **Updating and maintenance of FridgeFriends®**
 
 The **FridgeFriends** team has been contributing to the creation and development of this project and will also be responsible for the maintenance and updating of it. We also have to mention the help we have received from our early adopters which have given us very useful feedback, which has led us to make several improvements. 
+
+**Code editor and OS**
+
+The program has been built in PyCharm and tested in macOS Big Sur Version 11.4
